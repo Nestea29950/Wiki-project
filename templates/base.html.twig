@@ -20,57 +20,65 @@
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Navigation</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarColor02">
-					<ul class="navbar-nav me-auto">
-						<li class="nav-item">
-							<a class="nav-link active" href="/">Home
+	<body style="height:100vh;width:100%; justify-content:space-between; align-items:center;" class="d-flex flex-column"></body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100%;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Navigation</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarColor02">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item">
+						<a class="nav-link active" href="/">Home
 
-							</a>
-						</li>
-						<li
-							class="nav-item">
-							{# {{ path('app_categorie')}} #}
-							<a class="nav-link" href="">Catégories</a>
-						</li>
-
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
-							<div
-								class="dropdown-menu">
-								{# {{ path('app_login')}} #}
-
-								<a class="dropdown-item" href="">Se connecter</a>
-
-								{% if app.user %}
-									<div class="dropdown-divider"></div>
-									{# {{ path('app_logout')}} #}
-
-									<a class="dropdown-item" href="">Se déconnecter</a>
-
-								{% endif %}
+						</a>
+					</li>
+					<li
+						class="nav-item">
+						{# {{ path('app_categorie')}} #}
+						<a class="nav-link" href="">Catégories</a>
+					</li>
 
 
-								{% if is_granted('ROLE_ADMIN') %}
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Panel Admin</a>
-
-								{% endif %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
+						<div class="dropdown-menu">
 
 
-							</div>
-						</li>
-					</ul>
+							<a class="dropdown-item" href="{{ path('app_login')}} ">Se connecter</a>
 
-				</div>
-			</div>
-		</nav>
-		{% block body %}{% endblock %}
-	</body>
-</html>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href={{ path('app_inscription')}}>Inscription</a>
+
+
+							{% if app.user %}
+								<div class="dropdown-divider"></div>
+
+								<a class="dropdown-item" href="{{ path('app_logout')}}">Se déconnecter</a>
+
+							{% endif %}
+
+							{% if is_granted('ROLE_ADMIN') %}
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Panel Admin</a>
+
+							{% endif %}
+							{% if app.user %}
+								<li
+									class="nav-item">
+									{# {{ path('app_categorie')}} #}
+									<a class="nav-link" href="">Bonjour
+										{{ app.user.email }}</a>
+								</li>
+							{% endif %}
+
+
+						</div>
+					</li>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</html></nav>{% block body %}{% endblock %}<div>Footer</div></html></body></html></body></html>
