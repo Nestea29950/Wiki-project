@@ -20,7 +20,9 @@
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
-	<body style="height:100vh;width:100%; justify-content:space-between; align-items:center;" class="d-flex flex-column"></body>
+	<body style="height:100vh;width:100%; " class=""></body>
+	<div style="height:100vh;width:100%;display:flex; justify-content:space-between; align-items:center; flex-direction:column;">
+	<div style="height:100vh;width:100%;display:flex; align-items:center; flex-direction:column;">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100%;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Navigation</a>
@@ -30,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarColor02">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item">
-						<a class="nav-link active" href="/">Home
+						<a class="nav-link active" href="/">Accueil
 
 						</a>
 					</li>
@@ -42,7 +44,8 @@
 
 
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
+					
+						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img style="width:25px; height:100%"src="https://minecraft-heads.com/images/icons_heads/player-heads.png"></a>
 						<div class="dropdown-menu">
 
 
@@ -56,6 +59,13 @@
 								<div class="dropdown-divider"></div>
 
 								<a class="dropdown-item" href="{{ path('app_logout')}}">Se déconnecter</a>
+
+							{% endif %}
+
+							{% if app.user %}
+								<div class="dropdown-divider"></div>
+
+								<a class="dropdown-item" href="">Privée</a>
 
 							{% endif %}
 
@@ -73,7 +83,6 @@
 								</li>
 							{% endif %}
 
-
 						</div>
 					</li>
 				</li>
@@ -81,4 +90,41 @@
 
 		</div>
 	</div>
-</html></nav>{% block body %}{% endblock %}<div>Footer</div></html></body></html></body></html>
+	
+</nav>
+<div class="card" style="width: 70%; align-items:center; padding:20px;">
+  <img class="card-img-top" src="{{ asset('images/minecraftwiki.png') }}" alt="Card image cap" style="width:400px">
+  <div class="card-body">
+    
+    <p class="card-text">Minecraft Wiki est un « wiki » accessible et éditable par tous, visant à rassembler des informations utiles autour de Minecraft. Le wiki et ses 4 articles sont gérés et entretenus par 3 contributeurs actifs de la communauté Minecraft, et par l'équipe d'administration du site. Tout le monde peut y contribuer !</p>
+    <a href="#" class=""><img style="width: 30px;" src="{{ asset('images/door.png')}}">S'inscrire</a>
+	<a href="#" class=""><img style="width: 30px;" src="{{ asset('images/nether.webp')}}">Nouvelles pages</a>
+  </div>
+</div>
+{% block body %}{% endblock %}
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100%; height:20%">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Footer</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          </a>
+        </li>
+		<div style="display:flex; flex-direction:column;"> 
+	  <div> William Gaonarc'h</div>
+	  <div> Louis Michalak</div>
+	  <div> Tom Lebrun</div>
+	  </div>
+      </ul>
+	  
+      
+    </div>
+  </div>
+</nav>
+</div>
+</body></body></html>
