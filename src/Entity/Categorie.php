@@ -31,7 +31,7 @@ class Categorie
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function __toString(): string
     {
         return $this->nom;
     }
