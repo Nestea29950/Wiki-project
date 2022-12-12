@@ -2,7 +2,7 @@
 
 <h2>Une fois le projet récupéré</h2>
 
-<h3>Entrez les commandes suivantes :</h3>
+<h3 style="text-align-center;">Entrez les commandes suivantes :</h3>
 
 <ul>
 <li style="color:red;">composer require symfony/runtime</li>
