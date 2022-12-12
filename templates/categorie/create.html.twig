@@ -2,4 +2,32 @@
 
 {% block body %}
 
-	{{ form(form_create_categorie) }}{% endblock %}
+
+	<div class="container mt-4">
+
+		{% if editMode %}
+			<h5 class="center">Modification d'une catégorie</h5>
+		{% else %}
+			<h5 class="center">Création d'une catégorie</h5>
+		{% endif %}
+
+
+		{{ form_start(form_create_categorie) }}
+
+		{{ form_row(form_create_categorie.nom) }}
+
+
+		<button type="submit" class="btn btn-primary mt-4">
+
+			{% if editMode %}
+				Modifier la catégorie
+			{% else %}
+				Ajouter la catégorie
+			{% endif %}
+
+		</button>
+		{{ form_end(form_create_categorie) }}
+	</div>
+
+
+{% endblock %}

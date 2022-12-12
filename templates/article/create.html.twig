@@ -2,4 +2,35 @@
 
 {% block body %}
 
-	{{ form(form_create_article) }}{% endblock %}
+
+	<div class="container mt-4">
+
+		{% if editMode %}
+			<h5 class="center">Modification d'un article</h5>
+		{% else %}
+			<h5 class="center">Création d'un article</h5>
+		{% endif %}
+
+
+		{{ form_start(form_create_article) }}
+
+		{{ form_row(form_create_article.titre) }}
+		{{ form_row(form_create_article.resume) }}
+		{{ form_row(form_create_article.categorie) }}
+		{{ form_row(form_create_article.user) }}
+
+
+		<button type="submit" class="btn btn-primary mt-4">
+
+			{% if editMode %}
+				Modifier l'article
+			{% else %}
+				Ajouter l'article
+			{% endif %}
+
+		</button>
+		{{ form_end(form_create_article) }}
+	</div>
+
+
+{% endblock %}
