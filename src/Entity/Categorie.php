@@ -35,6 +35,10 @@ class Categorie
     {
         return $this->nom;
     }
+    public function getNom(): string
+    {
+        return $this->nom;
+    }
 
     public function setNom(string $nom): self
     {
