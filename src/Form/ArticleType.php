@@ -16,8 +16,7 @@ class ArticleType extends AbstractType
             ->add('titre')
             ->add('resume')
             ->add('categorie')
-            ->add('user')
-            ->add('creer', SubmitType::class);;
+            ->add('user');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -13,8 +13,7 @@ class CategorieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('creer', SubmitType::class);;;
+            ->add('nom');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
