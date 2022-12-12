@@ -12,9 +12,8 @@
   <ol>
 	  <li><a href="#Technologie">Technologies Utilisées</a></li>
     <li><a href="#Installation">Installation</a></li>
-    <li><a href="#Prerequis">Les Prérequis</a></li>
+    <li><a href="#Prérequis">Les Prérequis</a></li>
     <li><a href="#Utilisation">Utilisation</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
@@ -43,7 +42,7 @@ Afin de pouvoir visualiser et utiliser notre projet, il est néccessaire de proc
 
 
 
-# Les Prérequis
+# Prérequis
 
 
 * Télécharger Composer [getcomposer.com](https://getcomposer.org/download/)
