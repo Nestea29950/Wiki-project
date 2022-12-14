@@ -14,10 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategorieController extends AbstractController
 {
     #[Route('/categorie', name: 'app_categorie')]
-    public function index(): Response
+    public function index(ManagerRegistry $doctrine): Response
     {
+        $categories = $doctrine->getRepository(Categorie::class)->findAll();
         return $this->render('categorie/index.html.twig', [
             'controller_name' => 'CategorieController',
+            'categories' => $categories
         ]);
     }
 
