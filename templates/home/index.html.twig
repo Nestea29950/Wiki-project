@@ -9,7 +9,7 @@
 <p> Le jeu est axé sur la capacité du joueur à explorer et interagir avec un monde aléatoirement généré composé de blocs cubiques. En plus des blocs, l'environnement est constitué de plantes, de créatures et d'objets. <p>
 <p> Les principales activités dans le jeu sont le minage, les combats contre les créatures hostiles et la conception de nouveaux objets en réunissant les ressources trouvées. <p>
 </div>
-
+<h3> Catégories aléatoire </h3>
 {% for categorie in categories|slice(0,2) %}
 
             <div class="card  text-center  col-3 ">
@@ -25,11 +25,12 @@
             </div>
     
 {% endfor %}
+<h3> Articles aléatoire </h3>
 {% for article in articles|slice(0,2) %}
-
+        
             <div class="card  text-center  col-3 ">
                         <div class="card-body">
-                            <h5 class="card-title">{{ article.nom }}</h5>
+                            <h5 class="card-title">{{ article.titre }}</h5>
                             <div class="d-flex">
                                 <a href="/categorie/{{ article.id }}/edit" class="p-0 m-0">Modifier</a>
                                 <a href="/categorie/{{ article.id }}/delete" class="p-0 m-0">Supprimer</a>
