@@ -26,6 +26,9 @@ class Article
     #[ORM\ManyToOne(inversedBy: 'articles')]
     private ?User $user = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $img = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class Article
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): self
+    {
+        $this->img = $img;
 
         return $this;
     }
