@@ -67,4 +67,48 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('app_home');
     }
+
+
+
+
+    /**
+     * @Route("/articles/{categorie_id}", name="articles_categ", requirements={"categorie_id"="\d+"})
+     */
+    public function categ(int $categorie_id, ManagerRegistry $doctrine): Response
+    {
+        $articles = $doctrine->getRepository(Article::class)->findBy(
+            ['categorie' => $categorie_id]
+        );
+
+
+        if (!$articles) {
+            return new Response(
+                '<html><body>Aucun article pour cette catégorie</body></html>'
+            );
+        }
+
+
+        return $this->render('article/article_categ.html.twig', [
+            'controller_name' => 'ArticleController',
+            'current_menu' => 'articles',
+            'articles' => $articles,
+
+        ]);
+    }
+    /**
+     * @Route("/article/{article_id}", name="article_detail", requirements={"article_id"="\d+"})
+     */
+    public function detail(int $article_id, ManagerRegistry $doctrine): Response
+    {
+        $article = $doctrine->getRepository(Article::class)->find(
+                $article_id
+        );
+
+        return $this->render('article/article_detail.html.twig', [
+            'controller_name' => 'ArticleController',
+            'current_menu' => 'articles',
+            'article' => $article,
+
+        ]);
+    }
 }

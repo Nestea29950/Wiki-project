@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+	{% form_theme form_create_categorie 'bootstrap_4_layout.html.twig' %}
 
 
-	<div class="container" style="display:flex; justify-content:center; align-items:center; flex-direction:column;">
-		<div class="titre" ">
+	<div class="container">
+		<div class="titre">
 			{% if editMode %}
 				<h5 class="center">Modification d'une catégorie</h5>
 			{% else %}
@@ -14,11 +15,12 @@
 		</div>
 
 		{{ form_start(form_create_categorie) }}
+		<div class="form-group">
 
-		{{ form_row(form_create_categorie.nom) }}
+			{{ form_row(form_create_categorie.nom) }}
+		</div>
 
-
-		<button type="submit" class="btn btn-primary mt-4">
+		<button type="submit" class="btn btn-secondary mt-4">
 
 			{% if editMode %}
 				Modifier la catégorie
