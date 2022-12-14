@@ -46,9 +46,12 @@
 
 										<a class="dropdown-item text-decoration-none" href="{{ path('app_categorie')}}">Toutes les catégories</a>
 
+										{% if app.user %}
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item text-decoration-none" href="{{ path('categorie_create')}}">Créer catégories</a>
 
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item text-decoration-none" href="{{ path('categorie_create')}}">Créer catégories</a>
+
+										{% endif %}
 
 
 									</div>
@@ -62,9 +65,12 @@
 
 										<a class="dropdown-item text-decoration-none" href="{{ path('app_article')}}">Tous les articles</a>
 
+										{% if app.user %}
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item text-decoration-none" href="{{ path('article_create')}}">Créer article</a>
 
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item text-decoration-none" href="{{ path('article_create')}}">Créer article</a>
+
+										{% endif %}
 
 
 									</div>
