@@ -11,19 +11,23 @@
 			<h3>Articles de la catégorie selectionné<e></e>e></e>
 		</h3>
 		{% for article in articles %}
-
-			<a href="/article/{{ article.id }}" class="col-6 hover text-decoration-none">
-				<div class="card  text-center mb-4">
-					<div class="iconbox iconbox__style-02 mt-4">
-						<div>
+<div class="container">
+    <div class="row">
+  
+        <div>
+        <a class="text-decoration-none" href="/article/{{article.id}}">
+						<div class="card text-center">
 							<div class="card-body">
-								<h5 class="card-title">{{ article.titre }}</h5>
+								<div class="card-title">{{ article.titre|upper }}</div>
+								<div>
+									
+								</div>
 							</div>
 						</div>
+                        </a>
 					</div>
-				</div>
-			</a>
-
-		{% endfor %}
-	</div>
+                    
+        {% endfor %}
+    </div>    
+    </div>
 </div>{% endblock %}
