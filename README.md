@@ -30,6 +30,7 @@ Lors de la réalisation de ce projet, nous avons utilisés différentes technolo
 
 Afin de pouvoir visualiser et utiliser notre projet, il est néccessaire de procéder à quelques actions :
 
+Recupérez la base de données qui se trouve à la racine du projet 'wiki.sql'
 
 <p>Entrez les commandes suivantes :</p>
 
