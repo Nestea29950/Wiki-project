@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -9,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
+
+use Doctrine\Persistence\ManagerRegistry;
 use App\Form\UserType;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -73,9 +76,15 @@ class SecurityController extends AbstractController
     }
 
     // Route qui permet de voir le privé 
-    #[Route('/admin/prive', name: 'app_prive', methods: ['GET'])]
-    public function prive()
+    #[Route('/admin/prive', name: 'app_prive')]
+    public function prive(ManagerRegistry $doctrine)
     {
-        return $this->render('security/prive.html.twig',);
+
+        $articles = $doctrine->getRepository(Article::class)->findAll();
+
+        return $this->render('security/prive.html.twig', [
+            'articles' => $articles
+
+        ]);
     }
 }

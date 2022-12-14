@@ -20,15 +20,14 @@ class HomeController extends AbstractController
 
         $articles = $doctrine->getRepository(Article::class)->findAll();
         shuffle($articles);
-    
 
-        
+
+
         // Récuperer que 2 catégories
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
             'categories' => $categories,
             'articles' => $articles
-            
+
         ]);
     }
 }
