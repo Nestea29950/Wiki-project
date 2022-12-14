@@ -15,8 +15,8 @@
 							<div class="card-body">
 								<div class="card-title">{{ article.titre }}</div>
 								<div>
-									<a href="/categorie/{{ article.id }}/edit" class="p-0 m-0">Modifier</a>
-									<a href="/categorie/{{ article.id }}/delete" class="p-0 m-0">Supprimer</a>
+									<a href="/categorie/{{ article.id }}/edit" class="p-0 m-0 text-decoration-none">Modifier</a>
+									<a href="/categorie/{{ article.id }}/delete" class="p-0 m-0 text-decoration-none">Supprimer</a>
 								</div>
 							</div>
 						</div>
@@ -31,7 +31,7 @@
 	</div>
 
 	<button type="button" class="btn btn-dark">
-		<a class="dropdown-item" href="{{ path('article_create')}}">Créer article</a>
+		<a class="dropdown-item text-decoration-none" href="{{ path('article_create')}}">Créer article</a>
 	</button>
 
 {% endblock %}

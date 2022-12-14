@@ -1,43 +1,49 @@
 {% extends 'base.html.twig' %}
 
 
-
 {% block body %}
-<br>
-<div class="card" style="width: 70%; align-items:center; padding:20px;">
-					<img class="card-img-top" style="width:400px">
+	<br>
+	<div class="card" style="width: 70%; align-items:center; padding:20px;">
+		<img class="card-img-top" style="width:400px">
+		<div class="card-body">
+			<h4 class="text-center">
+				Ce wiki est basé sur le jeu Minecraft :
+			</h4>
+			<p>Minecraft est un jeu vidéo de type bac à sable multiplateforme fortement inspiré d'Infiniminer, conçu en Java par Markus Persson, dit « Notch », et maintenant géré par Mojang Studios et Microsoft notamment par Jens Bergensten dit « Jeb » Ce jeu est universel par sa simplicité de gameplay : casser et placer des blocs.
+			</p>
+			<p>Le jeu est axé sur la capacité du joueur à explorer et interagir avec un monde aléatoirement généré composé de blocs cubiques. En plus des blocs, l'environnement est constitué de plantes, de créatures et d'objets.
+			</p>
+			<p></p>
+			<p>Les principales activités dans le jeu sont le minage, les combats contre les créatures hostiles et la conception de nouveaux objets en réunissant les ressources trouvées.
+			</p>
+			<p></p>
+			<p class="card-text">Minecraft Wiki est un « wiki » accessible et éditable par tous, visant à rassembler des informations utiles autour de Minecraft. Le wiki et ses 4 articles sont gérés et entretenus par 3 contributeurs actifs de la communauté Minecraft, et par l'équipe d'administration du site. Tout le monde peut y contribuer !</p>
+
+		</div>
+	</div>
+	<h3>
+		CATEGORIES ALEATOIRES :
+	</h3>
+	<div class="d-flex">
+		{% for categorie in categories|slice(0,2) %}
+			<a href="/articles/{{categorie.id}}" class="text-decoration-none">
+				<div class="card px-4 m-2 d-flex align-items-center justify-content-center">
 					<div class="card-body">
-<h4 class="text-center"> Ce wiki est basé sur le jeu Minecraft : </h4> 
-<p> Minecraft est un jeu vidéo de type bac à sable multiplateforme fortement inspiré d'Infiniminer, conçu en Java par Markus Persson, dit « Notch », et maintenant géré par Mojang Studios et Microsoft notamment par Jens Bergensten dit « Jeb » Ce jeu est universel par sa simplicité de gameplay : casser et placer des blocs.
-<p> Le jeu est axé sur la capacité du joueur à explorer et interagir avec un monde aléatoirement généré composé de blocs cubiques. En plus des blocs, l'environnement est constitué de plantes, de créatures et d'objets. <p>
-<p> Les principales activités dans le jeu sont le minage, les combats contre les créatures hostiles et la conception de nouveaux objets en réunissant les ressources trouvées. <p>
-
-						<p class="card-text">Minecraft Wiki est un « wiki » accessible et éditable par tous, visant à rassembler des informations utiles autour de Minecraft. Le wiki et ses 4 articles sont gérés et entretenus par 3 contributeurs actifs de la communauté Minecraft, et par l'équipe d'administration du site. Tout le monde peut y contribuer !</p>
-
+						<h5 class="card-title">{{ categorie.nom|upper }}</h5>
 					</div>
 				</div>
-<h3>
-        CATEGORIES ALEATOIRES : 
-    </h3>
-    <div class="d-flex">
-        {% for categorie in categories|slice(0,2) %}
-            <a href="/articles/{{categorie.id}}">
-            <div class="card px-4 m-2 d-flex align-items-center justify-content-center">
-                <div class="card-body">
-                    <h5 class="card-title">{{ categorie.nom|upper }}</h5>
-                </div>
-            </div>
-            </a>
-        {% endfor %}
-    </div>
-    <h3>ARTICLES ALEATOIRES : </h3>
-    <div class="d-flex">
-        {% for article in articles|slice(0,2) %}
-            <div class="card px-4 m-2 d-flex align-items-center justify-content-center">
-                <div class="card-body">
-                    <h5 class="card-title">{{(article.titre|upper)}}</h5>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+			</a>
+		{% endfor %}
+	</div>
+	<h3>ARTICLES ALEATOIRES :
+	</h3>
+	<div class="d-flex">
+		{% for article in articles|slice(0,2) %}
+			<div class="card px-4 m-2 d-flex align-items-center justify-content-center">
+				<div class="card-body">
+					<h5 class="card-title">{{(article.titre|upper)}}</h5>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}
