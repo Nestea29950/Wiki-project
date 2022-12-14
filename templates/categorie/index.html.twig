@@ -13,23 +13,20 @@
 				cursor: pointer;
 			}
 		</style>
-<div class="container">
-    <div class="row">
-        {% for categorie in categories %}
-        <div class="col-sm">
-        <a class="text-decoration-none" href="/articles/{{categorie.id}}">
-						<div class="card  text-center">
-							<div class="card-body">
-								<div class="card-title">{{ categorie.nom|upper }}</div>
-								<div>
-									
+		<div class="container">
+			<div class="row">
+				{% for categorie in categories %}
+					<div class="col-sm">
+						<a class="text-decoration-none" href="/articles/{{categorie.id}}">
+							<div class="card  text-center">
+								<div class="card-body">
+									<div class="card-title">{{ categorie.nom|upper }}</div>
 								</div>
 							</div>
-						</div>
-                        </a>
+						</a>
 					</div>
-                    
-        {% endfor %}
-    </div>    
-    </div>
-		{% endblock %}
+
+				{% endfor %}
+			</div>
+		</div>
+	{% endblock %}
