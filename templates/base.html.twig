@@ -26,29 +26,29 @@
 
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100%;">
 					<div class="container-fluid">
-						<a class="navbar-brand" href="#">Navigation</a>
+						<a class="navbar-brand text-decoration-none" href="#">Navigation</a>
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse" id="navbarColor02">
 							<ul class="navbar-nav me-auto">
 								<li class="nav-item">
-									<a class="nav-link active" href="/">Accueil
+									<a class="nav-link active text-decoration-none" href="/">Accueil
 
 									</a>
 								</li>
 
 								<li class="nav-item dropdown">
 
-									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Catégories</a>
+									<a class="nav-link dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Catégories</a>
 
 									<div class="dropdown-menu">
 
-										<a class="dropdown-item" href="{{ path('app_categorie')}}">Toutes les catégories</a>
+										<a class="dropdown-item text-decoration-none" href="{{ path('app_categorie')}}">Toutes les catégories</a>
 
 
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="{{ path('categorie_create')}}">Créer catégories</a>
+										<a class="dropdown-item text-decoration-none" href="{{ path('categorie_create')}}">Créer catégories</a>
 
 
 									</div>
@@ -56,15 +56,15 @@
 
 								<li class="nav-item dropdown">
 
-									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Articles</a>
+									<a class="nav-link dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Articles</a>
 
 									<div class="dropdown-menu">
 
-										<a class="dropdown-item" href="{{ path('app_article')}}">Tous les articles</a>
+										<a class="dropdown-item text-decoration-none" href="{{ path('app_article')}}">Tous les articles</a>
 
 
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="{{ path('article_create')}}">Créer article</a>
+										<a class="dropdown-item text-decoration-none" href="{{ path('article_create')}}">Créer article</a>
 
 
 									</div>
@@ -73,41 +73,41 @@
 
 								<li class="nav-item dropdown">
 
-									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{{ path('app_login')}}" role="button" aria-haspopup="true" aria-expanded="false"><img style="width:25px; height:100%" src="https://minecraft-heads.com/images/icons_heads/player-heads.png"></a>
+									<a class="nav-link dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" href="{{ path('app_login')}}" role="button" aria-haspopup="true" aria-expanded="false"><img style="width:25px; height:100%" src="https://minecraft-heads.com/images/icons_heads/player-heads.png"></a>
 									<div class="dropdown-menu">
 
 
-										<a class="dropdown-item" href="{{ path('app_login')}} ">Se connecter</a>
+										<a class="dropdown-item text-decoration-none" href="{{ path('app_login')}} ">Se connecter</a>
 
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href={{ path('app_inscription')}}>Inscription</a>
+										<a class="dropdown-item text-decoration-none" href={{ path('app_inscription')}}>Inscription</a>
 
 
 										{% if app.user %}
 											<div class="dropdown-divider"></div>
 
-											<a class="dropdown-item" href="{{ path('app_logout')}}">Se déconnecter</a>
+											<a class="dropdown-item text-decoration-none" href="{{ path('app_logout')}}">Se déconnecter</a>
 
 										{% endif %}
 
 										{% if app.user %}
 											<div class="dropdown-divider"></div>
 
-											<a class="dropdown-item" href="{{ path('app_prive')}}">Privée</a>
+											<a class="dropdown-item text-decoration-none" href="{{ path('app_prive')}}">Privée</a>
 
 
 										{% endif %}
 
 										{% if is_granted('ROLE_ADMIN') %}
 											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Panel Admin</a>
+											<a class="dropdown-item text-decoration-none" href="#">Panel Admin</a>
 
 										{% endif %}
 										{% if app.user %}
 											<li
 												class="nav-item">
 												{# {{ path('app_categorie')}} #}
-												<a class="nav-link" href="">Bonjour
+												<a class="nav-link text-decoration-none" href="">Bonjour
 													{{ app.user.email }}</a>
 											</li>
 										{% endif %}
@@ -126,15 +126,15 @@
 					<div class="card-body">
 
 						<p class="card-text">Minecraft Wiki est un « wiki » accessible et éditable par tous, visant à rassembler des informations utiles autour de Minecraft. Le wiki et ses 4 articles sont gérés et entretenus par 3 contributeurs actifs de la communauté Minecraft, et par l'équipe d'administration du site. Tout le monde peut y contribuer !</p>
-						<a href="#" class=""><img style="width: 30px;" src="{{ asset('images/door.png')}}">S'inscrire</a>
-						<a href="#" class=""><img style="width: 30px;" src="{{ asset('images/nether.webp')}}">Nouvelles pages</a>
+						<a href="#" class="text-decoration-none"><img style="width: 30px;" src="{{ asset('images/door.png')}}">S'inscrire</a>
+						<a href="#" class="text-decoration-none"><img style="width: 30px;" src="{{ asset('images/nether.webp')}}">Nouvelles pages</a>
 					</div>
 				</div>
 				{% block body %}{% endblock %}
 
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100%; height:20%">
 					<div class="container-fluid">
-						<a class="navbar-brand" href="#">Footer</a>
+						<a class="navbar-brand text-decoration-none" href="#">Footer</a>
 
 						<div class="collapse navbar-collapse" id="navbarColor02">
 							<ul class="navbar-nav me-auto">
