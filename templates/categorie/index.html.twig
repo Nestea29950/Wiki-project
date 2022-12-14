@@ -2,32 +2,28 @@
 
 
 {% block body %}
-<div class="container mt-5 text-center ">
+	<div class="container mt-5 text-center ">
 
-        <a href="/admin/categorie/create" class="btn btn-outline-primary">Ajouter une catégorie</a>
-        <br></br>
-    <div class="flex-row">
-        <style>
-            .hover:hover {
-                transform: scale(1.03);
-                cursor: pointer;
-            }
-        </style>
+		<a href="/admin/categorie/create" class="btn btn-outline-primary text-decoration-none">Ajouter une catégorie</a>
+		<br></br>
+	<div class="flex-row">
+		<style>
+			.hover:hover {
+				transform: scale(1.03);
+				cursor: pointer;
+			}
+		</style>
 
-        {% for categorie in categories %}
-             <a href="/articles/{{categorie.id}}">
-            <div class="card  text-center col-5 ">
+		{% for categorie in categories %}
+			<a href="/articles/{{categorie.id}}" class="text-decoration-none">
+				<div class="card  text-center col-5 ">
 
-                        <div class="card-body">
-                            <h5 class="card-title">{{ categorie.nom }}</h5>
-                            <div class="d-flex">
-                                <a href="/categorie/{{ categorie.id }}/edit" class="p-0 m-0">Modifier</a>
-                                <a href="/categorie/{{ categorie.id }}/delete" class="p-0 m-0">Supprimer</a>
-                            </div>
-                        </div>
-                    </div>
-            </a>
-        {% endfor %}
-    </div>
-</div>
-{% endblock %}
+					<div class="card-body">
+						<h5 class="card-title">{{ categorie.nom }}</h5>
+
+					</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+</div>{% endblock %}

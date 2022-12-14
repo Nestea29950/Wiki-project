@@ -15,10 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     #[Route('/article', name: 'app_article')]
-    public function index(): Response
+    public function index(ManagerRegistry $doctrine): Response
     {
+        $articles = $doctrine->getRepository(Article::class)->findAll();
+
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
+            'articles' => $articles
         ]);
     }
 
@@ -101,7 +104,7 @@ class ArticleController extends AbstractController
     public function detail(int $article_id, ManagerRegistry $doctrine): Response
     {
         $article = $doctrine->getRepository(Article::class)->find(
-                $article_id
+            $article_id
         );
 
         return $this->render('article/article_detail.html.twig', [
