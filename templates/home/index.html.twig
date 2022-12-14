@@ -19,25 +19,43 @@
 <h3>
         CATEGORIES ALEATOIRES : 
     </h3>
-    <div class="d-flex">
+    <div class="container">
+    <div class="row">
         {% for categorie in categories|slice(0,2) %}
-            <a href="/articles/{{categorie.id}}">
-            <div class="card px-4 m-2 d-flex align-items-center justify-content-center">
-                <div class="card-body">
-                    <h5 class="card-title">{{ categorie.nom|upper }}</h5>
-                </div>
-            </div>
-            </a>
+        <div class="col-sm">
+        <a class="text-decoration-none" href="/articles/{{categorie.id}}">
+						<div class="card  text-center">
+							<div class="card-body">
+								<div class="card-title">{{ categorie.nom|upper }}</div>
+								<div>
+									
+								</div>
+							</div>
+						</div>
+                        </a>
+					</div>
+                    
         {% endfor %}
+    </div>    
     </div>
     <h3>ARTICLES ALEATOIRES : </h3>
-    <div class="d-flex">
+    <div class="container">
+    <div class="row">
         {% for article in articles|slice(0,2) %}
-            <div class="card px-4 m-2 d-flex align-items-center justify-content-center">
-                <div class="card-body">
-                    <h5 class="card-title">{{(article.titre|upper)}}</h5>
-                </div>
-            </div>
+        <div class="col-sm">
+        <a class="text-decoration-none" href="/article/{{article.id}}">
+						<div class="card  text-center">
+							<div class="card-body">
+								<div class="card-title">{{ article.titre|upper }}</div>
+								<div>
+									
+								</div>
+							</div>
+						</div>
+                        </a>
+					</div>
+                    
         {% endfor %}
+    </div>    
     </div>
 {% endblock %}
