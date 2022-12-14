@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{# ... #}
 
 {% block body %}
 	{% if error %}
 		<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 	{% endif %}
-
-	<form action="{{ path('app_login') }}" method="post">
+	{# Template du form avec un boutton connection #}
+	<form action="{{ path('app_login') }}" method="post" style="display:flex;justify-content:center;align-items:center;flex-direction:column;">
 		<label for="username">Email:</label>
+		{# valeur username #}
 		<input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
 		<label for="password">Password:</label>
@@ -16,8 +16,9 @@
 		type="password" id="password" name="_password"/>
 
 		{# If you want to control the URL the user is redirected to on success
-				        <input type="hidden" name="_target_path" value="/account"/> #}
+						<input type="hidden" name="_target_path" value="/account"/> #}
 
-		<button type="submit">login</button>
+		<button type="submit" style="margin-top:5px;" class="btn btn-dark">Se connecter</button>
+
 	</form>
 {% endblock %}

@@ -14,12 +14,13 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
+    // Route inscription
     #[Route('/inscription', name: 'app_inscription')]
     public function index(UserPasswordHasherInterface $passwordHasher, Request $request, EntityManagerInterface $manager): Response
     {
         // ... e.g. get the user data from a registration form
         $user = new User();
-
+        // Création d'un formulaire 
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
@@ -30,10 +31,12 @@ class SecurityController extends AbstractController
             $plaintextPassword = $user->getPassword();
 
             // hash the password (based on the security.yaml config for the $user class)
+            // Permet de hasher le password en bdd
             $hashedPassword = $passwordHasher->hashPassword(
                 $user,
                 $plaintextPassword
             );
+            //Modifie le mot de passe pas hashé en hashé
             $user->setPassword($hashedPassword);
             $manager->persist($user);
             $manager->flush();
@@ -43,7 +46,7 @@ class SecurityController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+    // Route login
     #[Route('/login', name: 'app_login')]
 
     public function indexlogin(AuthenticationUtils $authenticationUtils): Response
@@ -54,17 +57,25 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        // Render sur security/login.html.twig
         return $this->render('security/login.html.twig', [
             'controller_name' => 'LoginController',
             'last_username' => $lastUsername,
             'error'         => $error,
         ]);
     }
-
+    // Route qui permet de se déconnecter 
     #[Route('/logout', name: 'app_logout', methods: ['GET'])]
     public function logout()
     {
         // controller can be blank: it will never be called!
         throw new \Exception('Don\'t forget to activate logout in security.yaml');
+    }
+
+    // Route qui permet de voir le privé 
+    #[Route('/admin/prive', name: 'app_prive', methods: ['GET'])]
+    public function prive()
+    {
+        return $this->render('security/prive.html.twig',);
     }
 }
