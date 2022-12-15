@@ -14,11 +14,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ArticleController extends AbstractController
 {
+    //Function qui récupère tous les articles dans le but de les afficher
     #[Route('/article', name: 'app_article')]
     public function index(ManagerRegistry $doctrine): Response
     {
+        //On recupère
         $articles = $doctrine->getRepository(Article::class)->findAll();
 
+        //On envoie les articles dans le twig
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
             'articles' => $articles
@@ -51,6 +54,7 @@ class ArticleController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
+        //Affichage de l'article à modifier ou du twig vide pour créer
         return $this->render('article/create.html.twig', [
             'form_create_article' => $form->createView(),
             'editMode' => $article->getId() !== null,
@@ -79,18 +83,20 @@ class ArticleController extends AbstractController
      */
     public function categ(int $categorie_id, ManagerRegistry $doctrine): Response
     {
+        //On recupère tous les articles de la catégorie sélectionné
         $articles = $doctrine->getRepository(Article::class)->findBy(
             ['categorie' => $categorie_id]
         );
 
 
+        //Si aucun article existe pour cette catégorie
         if (!$articles) {
             return new Response(
                 '<html><body>Aucun article pour cette catégorie</body></html>'
             );
         }
 
-
+        //Onn envoie les articles dans le twig
         return $this->render('article/article_categ.html.twig', [
             'controller_name' => 'ArticleController',
             'current_menu' => 'articles',
@@ -103,10 +109,12 @@ class ArticleController extends AbstractController
      */
     public function detail(int $article_id, ManagerRegistry $doctrine): Response
     {
+        //On recupère l'article selectionné
         $article = $doctrine->getRepository(Article::class)->find(
             $article_id
         );
 
+        //On l'envoie dans le twig
         return $this->render('article/article_detail.html.twig', [
             'controller_name' => 'ArticleController',
             'current_menu' => 'articles',
