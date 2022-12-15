@@ -33,7 +33,7 @@ security:
 
   # Access controle modifié avec le /admin et
   access_control:
-    # - { path: ^/admin, roles: ROLE_ADMIN }
+    - { path: ^/admin, roles: ROLE_ADMIN }
     - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
