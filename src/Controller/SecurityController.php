@@ -41,6 +41,7 @@ class SecurityController extends AbstractController
             );
             //Modifie le mot de passe pas hashé en hashé
             $user->setPassword($hashedPassword);
+            $user->setRoles(['ROLE_ADMIN']);
             $manager->persist($user);
             $manager->flush();
             return $this->redirectToRoute('app_inscription');

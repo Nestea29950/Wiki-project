@@ -3,9 +3,11 @@
 
 {% block body %}
 	<div class="container">
-		<div class="d-flex justify-content-center">
-			<a href="/admin/article/create" class="btn btn-outline-primary text-decoration-none">Ajouter un article</a>
-		</div>
+		{% if app.user %}
+			<div class="d-flex justify-content-center">
+				<a href="/admin/article/create" class="btn btn-outline-primary text-decoration-none">Ajouter un article</a>
+			</div>
+		{% endif %}
 		<br></br>
 	<style>
 		.hover:hover {
