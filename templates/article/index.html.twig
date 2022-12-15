@@ -15,13 +15,20 @@
 			cursor: pointer;
 		}
 	</style>
+	<div style="text-align:center;">
+		{{ nbarticles }}
+		au total dans la catégorie</div>
+
 	<div class="row d-flex justify-content-center">
 		{% for article in articles %}
 			<a href="/article/{{article.id}}" class="col-5 m-2 text text-decoration-none">
 				<div class="card flex justify-content-center align-items-center">
 
 					<div class="card-body">
+
 						<h5 class="card-title">{{ article.titre }}</h5>
+						<div>Auteur :
+							{{article.user}}</div>
 
 					</div>
 				</div>

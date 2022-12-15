@@ -24,7 +24,8 @@ class ArticleController extends AbstractController
         //On envoie les articles dans le twig
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
-            'articles' => $articles
+            'articles' => $articles,
+            'nbarticles' => count($articles)
         ]);
     }
 
