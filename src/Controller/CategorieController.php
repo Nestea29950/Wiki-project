@@ -13,10 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CategorieController extends AbstractController
 {
+    //recupération de toutes les catégories 
     #[Route('/categorie', name: 'app_categorie')]
     public function index(ManagerRegistry $doctrine): Response
     {
+        //On recupère toutes les catégories
         $categories = $doctrine->getRepository(Categorie::class)->findAll();
+
+        //On les envoie dans le twig
         return $this->render('categorie/index.html.twig', [
             'controller_name' => 'CategorieController',
             'categories' => $categories
@@ -35,6 +39,7 @@ class CategorieController extends AbstractController
             $categorie = new Categorie();
         }
 
+        //creation du formulaire
         $form = $this->createForm(CategorieType::class, $categorie);
 
 
@@ -48,6 +53,8 @@ class CategorieController extends AbstractController
 
             return $this->redirectToRoute('app_home');
         }
+
+        //Affichage de la categorie à modifier ou du twig vide pour créer
 
         return $this->render('categorie/create.html.twig', [
             'form_create_categorie' => $form->createView(),

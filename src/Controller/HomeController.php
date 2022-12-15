@@ -15,8 +15,11 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(ManagerRegistry $doctrine): Response
     {
+        //Recupération de toutes les catégories de maniere aleatoire
         $categories = $doctrine->getRepository(Categorie::class)->findAll();
         shuffle($categories);
+
+        //Recupération de tous les articles de maniere aleatoire
 
         $articles = $doctrine->getRepository(Article::class)->findAll();
         shuffle($articles);
