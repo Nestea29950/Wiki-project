@@ -32,9 +32,7 @@ Afin de pouvoir visualiser et utiliser notre projet, il est néccessaire de proc
 
 Recupérez la base de données qui se trouve à la racine du projet 'wiki.sql'
 
-Pour pouvoir modifier ou ajouter des articles veuillez modifier votre profil dans la base de donné en mettant comme role [
-    "ROLE_ADMIN"
-]
+
 
 <p>Entrez les commandes suivantes :</p>
 
