@@ -3,8 +3,11 @@
 
 {% block body %}
 	<div class="container mt-5 text-center ">
+		{% if app.user %}
 
-		<a href="/admin/categorie/create" class="btn btn-outline-primary text-decoration-none">Ajouter une catégorie</a>
+			<a href="/admin/categorie/create" class="btn btn-outline-primary text-decoration-none">Ajouter une catégorie</a>
+		{% endif %}
+
 		<br></br>
 	<div class="flex-row">
 		<style>
