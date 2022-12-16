@@ -4,17 +4,31 @@
 {% block body %}
 	<div class="container mt-5 text-center">
 		<div class="row d-flex justify-content-center">
-			<div class="col-sm-12 col-lg-6">
+			<div class="col-sm-12 col-lg-6" style="display:flex; justify-content:space-between;">
 				<div class="card  text-center mb-4">
 					<div class="iconbox iconbox__style-02 mt-4">
-						<div>
-							<div class="card-body">
-								<h5 class="card-title">{{ article.titre }}</h5>
-								<p>{{ article.resume }}</p>
+						<div style="display:flex;">
+							<div class="card" style="width: 18rem;">
+
+								<div class=" card-body">
+									<h5 class="card-title">{{ article.titre }}</h5>
+									<p>{{ article.resume }}</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title">Minecraft 1.19.2</h5>
+						<p class="card-text">De la catégorie :
+							{{ article.categorie.nom}}</p>
+						<a href="/articles/{{article.categorie.id}}" class="btn btn-primary">Voir la catégorie</a>
+
+					</div>
+				</div>
+
+
 			</div>
 		</div>
 	</div>
